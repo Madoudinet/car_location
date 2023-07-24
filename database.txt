@@ -1,0 +1,71 @@
+Creer une base de donnee car_location
+
+CREATE DATABASE car_location;
+
+mettre dessus
+
+creer une table user
+    id entier non signé clé primaire auto increment
+    email chaine de caractere 255 unique
+    mdp chaine de caractere 255
+    username chaine de caractere 255
+    admin booleen
+
+    CREATE TABLE user(
+        id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+        email VARCHAR(255) UNIQUE,
+        mdp VARCHAR(255),
+        username VARCHAR(255),
+        admin BOOL
+    );
+
+Affiche la structure de ma table
+
+DESCRIBE user;
+
+Creer une table car
+    id entier non signé clé primaire auto increment
+    name chaine de caractere 255
+    description text
+    image chaine de caractere 255
+    price float
+
+    CREATE TABLE car(
+        id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+        name VARCHAR(255),
+        description TEXT,
+        image VARCHAR(255),
+        price FLOAT
+    );
+
+Creer une table contact
+    id entier non signé clé primaire auto increment
+    email chaine de caractere 255
+    content text
+    date DATETIME
+
+    CREATE TABLE contact(
+        id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+        email VARCHAR(255),
+        content TEXT,
+        date DATETIME
+    );
+
+Creer une table reservation
+    id entier non signé clé primaire auto increment
+    date_start DATE
+    date_end DATE
+    total_price float
+    id_user entier non signé clé secondaire id (user)
+    id_car entier non signé clé secondaire id (car)
+
+    CREATE TABLE reservation(
+        id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
+        date_start DATE,
+        date_end DATE,
+        total_price FLOAT,
+        id_user INT UNSIGNED,
+        id_car INT UNSIGNED,
+        CONSTRAINT fk_id_user FOREIGN KEY (id_user) REFERENCES user (id),
+        CONSTRAINT fk_id_car FOREIGN KEY (id_car) REFERENCES car (id)
+    );
