@@ -28,14 +28,14 @@ Creer une table car
     name chaine de caractere 255
     description text
     image chaine de caractere 255
-    price float
+    price deicmal
 
     CREATE TABLE car(
         id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
         name VARCHAR(255),
         description TEXT,
         image VARCHAR(255),
-        price FLOAT
+        price DECIMAL(8, 2)
     );
 
 Creer une table contact
@@ -63,7 +63,7 @@ Creer une table reservation
         id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
         date_start DATE,
         date_end DATE,
-        total_price FLOAT,
+        total_price DECIMAL(8, 2),
         id_user INT UNSIGNED,
         id_car INT UNSIGNED,
         CONSTRAINT fk_id_user FOREIGN KEY (id_user) REFERENCES user (id),
