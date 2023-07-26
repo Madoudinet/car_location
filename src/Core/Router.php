@@ -6,6 +6,7 @@ use App\Controller\Front\HomeController;
 use App\Controller\Front\ContactController;
 use App\Controller\Front\CarController;
 use App\Controller\Front\ReservationController;
+use App\Controller\Front\UserController;
 
 // require_once '../src/Controller/Front/ContactController.php';
 // require_once '../src/Controller/Front/HomeController.php';
@@ -40,9 +41,19 @@ class Router
             $this->currentController->index($params);
         });
 
-        $this->add_route('reservation/{id}', function(){
+        $this->add_route('/reservation/{id}', function($params){
             $this->currentController = new ReservationController();
+            $this->currentController->index($params);
+        });
+            
+        $this->add_route('/inscription', function(){
+            $this->currentController = new UserController();
             $this->currentController->index();
+        });
+            
+        $this->add_route('/save-user', function(){
+            $this->currentController = new UserController();
+            $this->currentController->saveUser();
         });
             
         

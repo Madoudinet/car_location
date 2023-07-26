@@ -3,13 +3,14 @@
 namespace App\Controller\Front;
 
 use App\Controller\AbstractController;
+use App\Model\AbstractModel;
 use \App\Model\Car;
 
 // Creer la class HomeController
 
 // function publique index
 
-class HomeController extends AbstractController
+class HomeController extends AbstractModel
 {
     public function index()
     {
