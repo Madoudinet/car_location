@@ -2,9 +2,10 @@
 
 namespace App\Core;
 
-use \App\Controller\Front\HomeController;
-use \App\Controller\Front\ContactController;
-use \App\Controller\Front\CarController;
+use App\Controller\Front\HomeController;
+use App\Controller\Front\ContactController;
+use App\Controller\Front\CarController;
+use App\Controller\Front\ReservationController;
 
 // require_once '../src/Controller/Front/ContactController.php';
 // require_once '../src/Controller/Front/HomeController.php';
@@ -23,13 +24,13 @@ class Router
             $this->currentController->index(); // Appelle la methode index du controleur d'accueil
         });
         // Route pour la page contact avec un parametre id
-        $this->add_route('/contact/{id}', function ($params) {// On peut passer les eventuels parametres à la fonction
+        $this->add_route('/contact/test/{id}', function ($params) {// On peut passer les eventuels parametres à la fonction
             $this->currentController = new ContactController();
             $this->currentController->index($params);
         });
-        $this->add_route('/contact/form', function () {
+        $this->add_route('/contact/form/{id}', function ($param) {
             $this->currentController = new ContactController();
-            $this->currentController->saveForm();
+            $this->currentController->saveForm($param);
         });
 
         // Ajouter une route /car/{id}, function creera un objet de type CarController et il appellera la method index() {require_once template->front->car.php h1 Bienvenue dans la page des voitures}
@@ -37,6 +38,11 @@ class Router
         $this->add_route('/car/{test}', function ($params) {
             $this->currentController = new CarController();
             $this->currentController->index($params);
+        });
+
+        $this->add_route('reservation/{id}', function(){
+            $this->currentController = new ReservationController();
+            $this->currentController->index();
         });
             
         
