@@ -15,4 +15,16 @@ class User extends AbstractModel
             ':pswd'=> $pswd,
         ]);
     }
+
+    public function getUserByEmail($email)
+    {
+        $stmt = $this->pdo->prepare('SELECT * FROM user WHERE email = :email');
+        $stmt->execute([
+            ':email'=>$email
+        ]);
+        return $stmt->fetch();
+        
+    }
+
+
 }

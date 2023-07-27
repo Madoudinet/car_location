@@ -2,6 +2,8 @@
 
 namespace App\Core;
 
+use App\Controller\Admin\AdminCarController;
+use App\Controller\Admin\AdminController;
 use App\Controller\Front\HomeController;
 use App\Controller\Front\ContactController;
 use App\Controller\Front\CarController;
@@ -55,7 +57,26 @@ class Router
             $this->currentController = new UserController();
             $this->currentController->saveUser();
         });
-            
+
+        $this->add_route('/connexion', function(){
+            $this->currentController = new UserController();
+            $this->currentController->connexion();
+        });
+        
+        $this->add_route('/connect', function(){
+            $this->currentController = new UserController();
+            $this->currentController->connect();
+        });
+
+        $this->add_route('/backoffice', function(){
+            $this->currentController = new AdminController();
+            $this->currentController->index();
+        });
+
+        $this->add_route('/backoffice/cars', function(){
+            $this->currentController = new AdminCarController();
+            $this->currentController->index();
+        });
         
     }
 

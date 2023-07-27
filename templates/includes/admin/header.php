@@ -28,24 +28,23 @@
           <a class="nav-link" href="/car-location/inscription">Inscription</a>
         </li>      
         <li class="nav-item">
-          <a class="nav-link" href="#">Connection</a>
+          <a class="nav-link" href="/car-location/connexion">Connexion</a>
         </li>      
       </ul>
  
     </div>
   </div>
 </nav>
-        <!-- <nav class="navbar bg-primary">
-            <div class="container-fluid">
-                <a class="navbar-brand text-light" href="#">Car Location</a>
-            </div>
-        </nav> -->
     </header>
     <main>
 
     <?php
 
-    if(isset($_SESSION['message'])){
-      echo $_SESSION['message'];
-      unset($_SESSION['message']);
-    }
+    // if(isset($_SESSION['message'])){
+    //   echo $_SESSION['message'];
+    //   unset($_SESSION['message']);
+    // }
+
+use App\Core\Session;
+
+Session::getFlashMessage();

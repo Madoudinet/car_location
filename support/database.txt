@@ -76,3 +76,11 @@ Creer une table reservation
 
     UPDATE car SET image = 'peugeot308.png' WHERE id = 1;
     UPDATE car SET image = 'clio.png' WHERE id = 2;
+
+    UPDATE car SET image = '308.jpg' WHERE id = 1;
+    UPDATE car SET image = 'Clio.jpg' WHERE id = 2;
+
+    UPDATE car SET price = 129.99 WHERE id = 2;
+    UPDATE car SET price = 145.99 WHERE id = 1;
+
+DELETE FROM user;

@@ -2,15 +2,10 @@
 require_once '../templates/includes/front/header.php';
 ?>
 
-
 <section class="container py-3">
-    <h1>Inscription</h1>
+    <h1>Connexion</h1>
 
-<form action="/car-location/save-user" method="post" class="w-75 m-auto">
-    <div>
-        <label for="name" class="form-label">Pseudo</label>
-        <input type="text" class="form-control" id="name" name="pseudo">
-    </div>
+<form action="/car-location/connect" method="post" class="w-75 m-auto">
   <div class="mb-3">
     <label for="email" class="form-label">Email</label>
     <input type="email" class="form-control" id="email" name="email">
@@ -22,7 +17,6 @@ require_once '../templates/includes/front/header.php';
   <button type="submit" class="btn btn-outline-success">Envoyer</button>
 </form>
 </section>
-
 
 <?php
 require_once '../templates/includes/footer.php';
