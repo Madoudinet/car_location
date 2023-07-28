@@ -8,7 +8,7 @@ require_once '../templates/includes/front/header.php';
         foreach ($cars as $car) {
         ?>
             <div class="card m-2" style="width: 18rem;">
-                <img src="/car-location/public/img/<?= $car['image']; ?>" alt="une image" class="card-img-top">
+                <img src="/car-location/public/img/upload/<?= $car['image']; ?>" alt="une image" class="card-img-top">
                 <div class="card-body">
                     <h2 class="card-title"><?= $car['name']; ?></h2>
                     <p class="card-text"><?= $car['description']; ?></p>

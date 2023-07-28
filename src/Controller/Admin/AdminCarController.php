@@ -53,15 +53,13 @@ class AdminCarController extends AbstractController
                 }
 
                 if(in_array($fileType, $allowed)){
-                    if(file_exists('./img/'. $fileName)){
+                    if(file_exists('./img/upload/'. $fileName)){
                         Session::setFlashMessage('Le fichier a déjà été téléchargé !', 'warning');
                     header('Location: /car-location/backoffice/update-car/' . $id);
                     exit();
                     } else {
                         move_uploaded_file($_FILES['image']['tmp_name'], './img/upload/' . $_FILES['image']['name']);
-                        Session::setFlashMessage('L\'image de la voiture viens d\'être modifié !', 'success');
-                        header('Location: /car-location/backoffice/cars');
-                        exit();
+              
                     }
                 }
 
@@ -78,7 +76,7 @@ class AdminCarController extends AbstractController
             }
 
             $car = new Car();
-            $car->updateCar($id, $model, $description, $price);
+            $car->updateCar($id, $model, $description, $price, $fileName);
             Session::setFlashMessage('Une voiture viens d\'être modifié !', 'success');
             header('Location: /car-location/backoffice/cars');
             exit();
