@@ -23,6 +23,25 @@ class Car extends AbstractModel
         ]);
         return $stmt->fetch();
     }
+
+    /**
+     * @param int $id
+     * @param string $name
+     * @param string $description
+     * @param float $price
+     * 
+     * @return void
+     */
+    public function updateCar(int $id, string $name, string $description, float $price): void
+    {
+        $stmt = $this->pdo->prepare('UPDATE car SET name = :name, description = :description, price = :price WHERE id = :id;');
+        $stmt->execute([
+            ':name' => $name,
+            ':description' => $description,
+            ':price' => $price,
+            ':id' => $id
+        ]);
+    }
 }
 
 // Inserer en base de donne 2 ligne pour la table car

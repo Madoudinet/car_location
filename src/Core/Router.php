@@ -27,18 +27,18 @@ class Router
             $this->currentController->index(); // Appelle la methode index du controleur d'accueil
         });
         // Route pour la page contact avec un parametre id
-        $this->add_route('/contact/test/{id}', function ($params) {// On peut passer les eventuels parametres à la fonction
+        // $this->add_route('/contact', function ($params) {// On peut passer les eventuels parametres à la fonction
+        //     $this->currentController = new ContactController();
+        //     $this->currentController->index($params);
+        // });
+        $this->add_route('/contact', function () {
             $this->currentController = new ContactController();
-            $this->currentController->index($params);
-        });
-        $this->add_route('/contact/form/{id}', function ($param) {
-            $this->currentController = new ContactController();
-            $this->currentController->saveForm($param);
+            $this->currentController->saveForm();
         });
 
         // Ajouter une route /car/{id}, function creera un objet de type CarController et il appellera la method index() {require_once template->front->car.php h1 Bienvenue dans la page des voitures}
 
-        $this->add_route('/car/{test}', function ($params) {
+        $this->add_route('/car', function ($params) {
             $this->currentController = new CarController();
             $this->currentController->index($params);
         });
@@ -77,6 +77,21 @@ class Router
             $this->currentController = new AdminCarController();
             $this->currentController->index();
         });
+
+        $this->add_route('/backoffice/update-car/{id}', function($param){
+            $this->currentController = new AdminCarController();
+            $this->currentController->carForm($param);
+        });
+        // /backoffice/form-car
+        // carFormTraitement()
+            // Verifier si le champs 'name' n'est pas vide
+
+        $this->add_route('/backoffice/form-car', function(){
+            $this->currentController = new AdminCarController();
+            $this->currentController->updateCar();
+        });
+
+        
         
     }
 

@@ -3,21 +3,20 @@
 namespace App\Controller\Front;
 
 use App\Controller\AbstractController;
-use App\Model\AbstractModel;
 use \App\Model\Car;
 
 // Creer la class HomeController
 
 // function publique index
 
-class HomeController extends AbstractModel
+class HomeController extends AbstractController
 {
     public function index()
     {
         // Creer une class Car dans Model
         // Method public getCars()
         $car = new Car();
-        $cars = $car->getCars($this->pdo);
+        $cars = $car->getCars();
 
         require_once '../templates/front/home.php';
     }

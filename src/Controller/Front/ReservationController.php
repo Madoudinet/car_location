@@ -3,10 +3,9 @@
 namespace App\Controller\Front;
 
 use App\Controller\AbstractController;
-use App\Model\AbstractModel;
 use App\Model\Car;
 
-class ReservationController extends AbstractModel
+class ReservationController extends AbstractController
 
 {
     public function index($params)

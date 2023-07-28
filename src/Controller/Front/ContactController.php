@@ -10,13 +10,12 @@ use App\Controller\AbstractController;
 
 class ContactController extends AbstractController
 {
-    public function index($params)
+    public function index()
     {
         // echo $params['id'];
     }
 
-    public function saveForm($param)
+    public function saveForm()
     {
-        echo $param['id'];
     }
 }
